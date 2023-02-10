@@ -1,5 +1,23 @@
 
-<h1 style="text-align:center;">Games</h1>
-<div class="container my-3">
+<div class="contentCard" >
+	<h2 class="contentTitle"> {{game?.title}}</h2>
+
+
+	<img (click)="printDataOnConsole()" *ngIf="game?.imageURL; else elseBlockForImage" [src]="game?.imageURL" class="img">
 	
+	<ng-template #elseBlockForImage>
+		<img src={{game?.imageURL}} class="game-image">
+	</ng-template>
+
+	<div class="content">
+		<p class="contentTitle box"> {{game?.description}}</p>
+		<p class="contentPublisher box"><span> Publisher is  </span> {{game?.publisher}}</p>
+		<p class="contentType box">{{game?.type}}</p>
+
+		<ng-template #elseBlockForBody>
+			<p class="contentBody"> Sorry, this game is unavailable!</p>
+		</ng-template>
+
+
+	</div>
 </div>

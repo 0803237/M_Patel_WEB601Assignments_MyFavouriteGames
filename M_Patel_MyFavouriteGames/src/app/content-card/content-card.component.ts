@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Content} from '../helper-files/content-interface';
 
 @Component({
@@ -8,8 +8,12 @@ import { Content} from '../helper-files/content-interface';
 })
 export class ContentCardComponent {
   title = 'Moksha Patel';
+  @Input() game?: Content;
 
-
+  printDataOnConsole()
+  {
+    console.log(`Content's id is "${this.game?.id}" and Title of the game is "${this.game?.title}"`);
+  }
 
   constructor() {
   

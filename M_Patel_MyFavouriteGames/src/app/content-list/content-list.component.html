@@ -1,0 +1,5 @@
+   
+<div>
+    <app-content-card  *ngFor="let item of game; let even = even; let odd = odd" 
+    [class.even]="even" [class.odd]="odd" [game]="item"></app-content-card>
+</div>
