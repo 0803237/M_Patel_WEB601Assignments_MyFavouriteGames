@@ -7,6 +7,10 @@ import { Content } from '../helper-files/content-interface';
   styleUrls: ['./content-list.component.scss']
 })
 export class ContentListComponent {
+  message = {
+    message: "",
+    found: false
+  };
 
   game: Content[];
 
@@ -36,7 +40,7 @@ export class ContentListComponent {
       title: 'Valorant',
       description: "Valorant is a team-based game where they are placed either in attacking or defending team.",
       publisher : "Riot Games",
-      type: "first-person tactical hero shooter Game",
+      type: "Shooter Video Game",
       ratings: 4,
       imageURL: '/assets/Valorant.jpg',   
     },
@@ -46,7 +50,7 @@ export class ContentListComponent {
       title: 'Splitgate',
       description: "Splitgate s a fast-paced, arena-based shooter where you and everyone else can create portals to flank, reposition, and zip around the map",
       publisher : "1047 Games",
-      type: "shooter Game",
+      type: "",
       ratings: 4,
       imageURL: '/assets/splitgate.jpg',   
     },
@@ -56,7 +60,7 @@ export class ContentListComponent {
       title: 'Call of Duty: Warzone',
       description: "Call of Duty: Warzone is, by and large, a mode designed for the 2019 release of Call of Duty: Modern Warfare. ",
       publisher : "Activision",
-      type: "Shooter video game",
+      type: "Shooter Video game",
       ratings: 3.2,
       imageURL: '/assets/WarZone.jpg',   
     },
@@ -69,7 +73,40 @@ export class ContentListComponent {
       type: "racing game",
       ratings: 4.1,
       imageURL: '/assets/NFS.jpg',   
+    },
+  
+    {
+      id: 7,
+      title: 'Desktop Dungeons',
+      description: "In the game, players navigate a dungeon filled with monsters before battling a final dungeon boss.",
+      publisher : "QCF Design",
+      type: "Puzzle video-game",
+      ratings: 4,
+      imageURL: '/assets/Desktop.jpg',   
+    },
+  
+    {
+      id: 8,
+      title: 'Samorost',
+      description: "The goal of the Samorost games is to solve a series of puzzles and brain teasers",
+      publisher : "Amanita Design",
+      type: "",
+      ratings: 4.2,
+      imageURL: '/assets/Samorost.jpg',   
     }];
 
+  }
+  ngOnInit(): void {
+  }
+
+  checkForTitleInList(gameList: string): void {
+    if (this.game.some(event => event.title.toLowerCase() === gameList.toLowerCase())) {
+      this.message.message = "Title Found";
+      this.message.found = true;
+    }
+    else {
+      this.message.message = "Title Not Found";
+      this.message.found = false;
+    }
   }
 }

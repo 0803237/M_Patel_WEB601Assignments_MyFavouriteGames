@@ -1,5 +1,44 @@
    
-<div>
+<!-- <div>
     <app-content-card  *ngFor="let item of game; let even = even; let odd = odd" 
     [class.even]="even" [class.odd]="odd" [game]="item"></app-content-card>
+</div> -->
+
+<div class="searchbox"><label>
+    Game search:
+    <input autofocus #GameTitle>
+  </label>
+  <button (click)="checkForTitleInList(GameTitle.value)">Check Game Title</button>
+</div>
+<div class="search-error" [style]="message.found ? 'color: green' : 'color: red'">
+{{ message.message }}
+</div>
+
+
+<hr><h2>Shooter Video Game</h2><hr>
+<div>
+	<app-content-card  *ngFor="let item of game | gameFilter:'Shooter Video Game';" class="SVGCard" [game]="item"></app-content-card>
+</div>
+<hr>
+
+<h2>Action-adventure Game</h2><hr>
+<div>
+	<app-content-card  *ngFor="let item of game | gameFilter:'action-adventure Game'; " class="AAGCard"  [game]="item"></app-content-card>
+</div>
+<hr>
+
+<h2>Racing game</h2><hr>
+<div>
+	<app-content-card  *ngFor="let item of game | gameFilter:'racing game'; " class="Racingcard"  [game]="item"></app-content-card>
+</div>
+<hr>
+
+<h2>Puzzle video-game</h2>
+<div>
+	<app-content-card  *ngFor="let item of game | gameFilter:'Puzzle video-game'; " class="PVGcard"  [game]="item"></app-content-card>
+</div>
+
+<h2>No Type</h2>
+<div>
+	<app-content-card  *ngFor="let item of game | gameFilter:''; " class="NullTypeCard" [game]="item"></app-content-card>
 </div>
