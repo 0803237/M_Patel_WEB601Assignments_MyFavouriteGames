@@ -5,5 +5,5 @@ export interface Content {
     publisher : string;
     type: string;
     ratings: number;
-    imageURL: string;   
+    imageURL?: string;   
     }

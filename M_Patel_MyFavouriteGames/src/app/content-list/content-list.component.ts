@@ -81,8 +81,8 @@ export class ContentListComponent {
       description: "In the game, players navigate a dungeon filled with monsters before battling a final dungeon boss.",
       publisher : "QCF Design",
       type: "Puzzle video-game",
-      ratings: 4,
-      imageURL: '/assets/Desktop.jpg',   
+      ratings: 4
+      // imageURL: '/assets/Desktop.jpg',   
     },
   
     {

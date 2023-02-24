@@ -15,30 +15,30 @@
 </div>
 
 
-<hr><h2>Shooter Video Game</h2><hr>
+<hr><h2 appHoveraffect="underline">Shooter Video Game</h2><hr>
 <div>
 	<app-content-card  *ngFor="let item of game | gameFilter:'Shooter Video Game';" class="SVGCard" [game]="item"></app-content-card>
 </div>
 <hr>
 
-<h2>Action-adventure Game</h2><hr>
+<h2 appHoveraffect="underline">Action-adventure Game</h2><hr>
 <div>
 	<app-content-card  *ngFor="let item of game | gameFilter:'action-adventure Game'; " class="AAGCard"  [game]="item"></app-content-card>
 </div>
 <hr>
 
-<h2>Racing game</h2><hr>
+<h2 appHoveraffect="underline">Racing game</h2><hr>
 <div>
 	<app-content-card  *ngFor="let item of game | gameFilter:'racing game'; " class="Racingcard"  [game]="item"></app-content-card>
 </div>
 <hr>
 
-<h2>Puzzle video-game</h2>
+<h2 appHoveraffect="underline">Puzzle video-game</h2>
 <div>
 	<app-content-card  *ngFor="let item of game | gameFilter:'Puzzle video-game'; " class="PVGcard"  [game]="item"></app-content-card>
 </div>
 
-<h2>No Type</h2>
+<h2 appHoveraffect="underline">No Type</h2>
 <div>
 	<app-content-card  *ngFor="let item of game | gameFilter:''; " class="NullTypeCard" [game]="item"></app-content-card>
 </div>

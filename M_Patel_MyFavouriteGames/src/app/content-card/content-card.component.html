@@ -1,23 +1,21 @@
 
 <div class="contentCard" >
-	<h2 class="contentTitle"> {{game?.title}}</h2>
+	<h2 class="contentTitle" appHoveraffect="'bold'"> {{game?.title}}</h2>
 
 
-	<img (click)="printDataOnConsole()" *ngIf="game?.imageURL; else elseBlockForImage" [src]="game?.imageURL" class="img">
+	<img (click)="printDataOnConsole()" *ngIf="game?.imageURL; else defaultGameImage" [src]="game?.imageURL" class="img">
 	
 	<ng-template #elseBlockForImage>
 		<img src={{game?.imageURL}} class="game-image">
 	</ng-template>
 
 	<div class="content">
-		<p class="contentDescription box"> {{game?.description}}</p>
+		<p class="contentDescription box" appHoveraffect> {{game?.description}}</p>
 		<p class="contentPublisher box"><span> Publisher is  </span> {{game?.publisher}}</p>
-		<p class="contentType box">{{game?.type}}</p>
+		<p class="contentType box" appHoveraffect="underline" >{{game?.type}}</p>
 
-		<ng-template #elseBlockForBody>
-			<p class="contentBody"> Sorry, this game is unavailable!</p>
+		<ng-template #defaultGameImage>
+			<img src="/assets/default.jpg" width="300px" height="250px">
 		</ng-template>
-
-
 	</div>
 </div>
