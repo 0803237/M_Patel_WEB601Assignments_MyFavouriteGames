@@ -1,0 +1,7 @@
+ID: <input type="text" name="id" [(ngModel)]="game.id" required>
+Title: <input type="text" name="title" [(ngModel)]="game.title" required>
+Description: <input type="text" name="description" [(ngModel)]="game.description">
+Publisher: <input type="text" name="publisher" [(ngModel)]="game.publisher" required>
+Type: <input type="text" name="gametype" [(ngModel)]="game.gametype" required><br><br>
+
+<button (click)="addGame()">Create Game</button>

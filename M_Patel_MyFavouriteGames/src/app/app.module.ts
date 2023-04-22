@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -6,6 +7,7 @@ import { ContentCardComponent } from './content-card/content-card.component';
 import { ContentListComponent } from './content-list/content-list.component';
 import { GameFilterPipe } from './pipes/game-filter.pipe';
 import { HoveraffectDirective } from './hoveraffect.directive';
+import { CreateContentComponent } from './create-content/create-content.component';
 
 @NgModule({
   declarations: [
@@ -13,10 +15,13 @@ import { HoveraffectDirective } from './hoveraffect.directive';
     ContentCardComponent,
     ContentListComponent,
     GameFilterPipe,
-    HoveraffectDirective
+    HoveraffectDirective,
+    CreateContentComponent
   ],
+  
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

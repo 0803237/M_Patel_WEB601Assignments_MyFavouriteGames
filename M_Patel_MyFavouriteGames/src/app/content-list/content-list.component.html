@@ -1,44 +1,110 @@
-   
-<!-- <div>
-    <app-content-card  *ngFor="let item of game; let even = even; let odd = odd" 
-    [class.even]="even" [class.odd]="odd" [game]="item"></app-content-card>
-</div> -->
 
-<div class="searchbox"><label>
-    Game search:
-    <input autofocus #GameTitle>
-  </label>
-  <button (click)="checkForTitleInList(GameTitle.value)">Check Game Title</button>
-</div>
-<div class="search-error" [style]="message.found ? 'color: green' : 'color: red'">
-{{ message.message }}
-</div>
+<app-create-content (createNewGame)="addGame($event)">
+  
+</app-create-content>
+<p *ngIf="errorMsg !== ''">{{errorMsg}}</p>
+<br> <hr>
 
 
-<hr><h2 appHoveraffect="underline">Shooter Video Game</h2><hr>
-<div>
-	<app-content-card  *ngFor="let item of game | gameFilter:'Shooter Video Game';" class="SVGCard" [game]="item"></app-content-card>
-</div>
-<hr>
 
-<h2 appHoveraffect="underline">Action-adventure Game</h2><hr>
-<div>
-	<app-content-card  *ngFor="let item of game | gameFilter:'action-adventure Game'; " class="AAGCard"  [game]="item"></app-content-card>
-</div>
-<hr>
+Search by title <input type="text" [(ngModel)]="titleSearch">
+<button (click)="SearchByTitle()">Search Title</button>
 
-<h2 appHoveraffect="underline">Racing game</h2><hr>
-<div>
-	<app-content-card  *ngFor="let item of game | gameFilter:'racing game'; " class="Racingcard"  [game]="item"></app-content-card>
-</div>
-<hr>
 
-<h2 appHoveraffect="underline">Puzzle video-game</h2>
-<div>
-	<app-content-card  *ngFor="let item of game | gameFilter:'Puzzle video-game'; " class="PVGcard"  [game]="item"></app-content-card>
+<p *ngIf="checkForTitleInList !== null" >
+    <span [style]="checkForTitleInList ? 'color: green' : 'color: red'">
+        {{checkForTitleInList ? 'Title Found' : 'Title Not Found'}}
+    </span>
+</p>
+
+<br> <hr>
+
+<div class="layout">
+<h1 appHoveraffect="underline">Shooter Video Game</h1><hr>
+<div *ngFor="let content of game | gameFilter:'Shooter Video Game'" class="SVGCard">
+    <h2>{{content.title}}</h2>
+    <p>{{content.description}}</p>
+    <p>Publisher: {{content.publisher}}</p>
+    <p appHoverAffect>GameType: {{content.gametype}}</p>
+
+    <div *ngIf="content.imageURL; else defaultImg">
+        <img  [src]="content.imageURL">
+    </div>
+    <ng-template #defaultImg>
+        <img  [src]="defaultImage">
+    </ng-template>
 </div>
 
-<h2 appHoveraffect="underline">No Type</h2>
-<div>
-	<app-content-card  *ngFor="let item of game | gameFilter:''; " class="NullTypeCard" [game]="item"></app-content-card>
+<br> <hr> 
+
+<h1 appHoveraffect="underline">Action-adventure Game</h1><hr>
+<div *ngFor="let content of game | gameFilter:'action-adventure Game'" class="AAGCard">
+    <h2>{{content.title}}</h2>
+    <p>{{content.description}}</p>
+    <p>Publisher: {{content.publisher}}</p>
+    <p appHoverAffect>GameType: {{content.gametype}}</p>
+
+    <div *ngIf="content.imageURL; else defaultImg">
+        <img [src]="content.imageURL">
+    </div>
+    <ng-template #defaultImg>
+        <img [src]="defaultImage">
+    </ng-template>
+</div>
+
+<br> <hr> 
+
+<h1 appHoveraffect="underline">Racing Game</h1><hr>
+<div *ngFor="let content of game | gameFilter:'racing game'" class="Racingcard">
+    <h2>{{content.title}}</h2>
+    <p>{{content.description}}</p>
+    <p>Publisher: {{content.publisher}}</p>
+    <p appHoverAffect>GameType: {{content.gametype}}</p>
+
+    <div *ngIf="content.imageURL; else defaultImg">
+        <img [src]="content.imageURL">
+    </div>
+    <ng-template #defaultImg>
+        <img [src]="defaultImage">
+    </ng-template>
+</div>
+
+<br> <hr> 
+
+
+<h1 appHoveraffect="underline">Puzzle video-game</h1><hr>
+<div *ngFor="let content of game | gameFilter:'Puzzle video-game'" class="PVGcard">
+    <h2>{{content.title}}</h2>
+    <p>{{content.description}}</p>
+    <p>Publisher: {{content.publisher}}</p>
+    <p appHoverAffect>GameType: {{content.gametype}}</p>
+
+
+    <div *ngIf="content.imageURL; else defaultImg">
+        <img [src]="content.imageURL">
+    </div>
+    <ng-template #defaultImg>
+        <img [src]="defaultImage">
+    </ng-template>
+</div>
+
+<br> <hr>
+
+
+<h1 appHoveraffect="underline">No Type</h1><hr>
+<div *ngFor="let content of game | gameFilter:''" class="NullTypeCard">
+    <h2>{{content.title}}</h2>
+    <p>{{content.description}}</p>
+    <p>Publisher: {{content.publisher}}</p>
+    <p appHoverAffect>GameType: {{content.gametype}}</p>
+
+    
+    <div *ngIf="content.imageURL; else defaultImg">
+        <img [src]="content.imageURL">
+    </div>
+    <ng-template #defaultImg>
+        <img [src]="defaultImage">
+    </ng-template>
+    <br>
+</div>
 </div>

@@ -8,7 +8,7 @@ export class GameFilterPipe implements PipeTransform {
 
   transform(game:Content[],inputValue?: string): Content[] {
     return game.filter(games => {
-      return games.type === inputValue;
+      return games.gametype === inputValue;
   });
 }
 

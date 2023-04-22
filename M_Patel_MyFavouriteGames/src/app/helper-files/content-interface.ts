@@ -3,7 +3,7 @@ export interface Content {
     title: string;
     description: string;
     publisher : string;
-    type: string;
+    gametype: string;
     ratings: number;
     imageURL?: string;   
     }
