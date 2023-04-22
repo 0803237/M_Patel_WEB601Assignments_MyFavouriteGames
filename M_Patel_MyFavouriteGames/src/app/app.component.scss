@@ -2,3 +2,19 @@ h1 {
     text-align: center;
     color: rgb(91, 30, 66);
 }
+
+.shadow {
+    box-shadow: 2px black;
+    background-color: rgb(246, 221, 213);
+    color: rgb(18, 16, 16);
+    margin: auto;
+    width: 50%;
+    border: 1px solid black;
+    text-align: center;
+}
+
+img {
+    width: 500px;
+    margin: auto;
+    padding-bottom: 30px;
+}

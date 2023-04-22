@@ -16,4 +16,26 @@
 <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <h1>My Favourite Games</h1>
+
+<div class="shadow">
+    <h2>{{firstGame.title}}</h2>
+    <p>{{firstGame.description}}</p>
+    <p>{{firstGame.publisher}}</p>
+    <p appHoverAffect>Type: {{firstGame.type}}</p>
+
+    <div>
+        ratings: 
+        <p *ngFor="let rating of firstGame.ratings" appHoverAffect="'underline'">{{rating}}</p>
+    </div>
+
+    <div *ngIf="firstGame.imageUrl; else defaultImg">
+        <img  [src]="firstGame.imageUrl">
+    </div>
+    <ng-template #defaultImg>
+        <img  [src]="defaultImage">
+    </ng-template>
+</div>
+
 <app-content-list></app-content-list>
+
+<app-message></app-message>
