@@ -1,6 +1,7 @@
 
-
-
+<br>
+<app-modify-content (createNewGame)="addGame($event)"></app-modify-content>
+<br><hr>
 
 <p *ngIf="checkForTitleInList !== null" >
     <span [style]="checkForTitleInList ? 'color: green' : 'color: red'">

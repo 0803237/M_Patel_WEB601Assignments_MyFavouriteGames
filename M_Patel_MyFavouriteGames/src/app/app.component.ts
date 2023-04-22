@@ -9,6 +9,7 @@ import { GamesService } from './services/games.service';
 export class AppComponent {
   title = 'M_Patel_MyFavouriteGames';
   defaultImage: string = 'assets/default.jpg';
+  $id: any;
   firstGame: any = {}
 
   logIdTitle(card: any){
@@ -18,6 +19,6 @@ export class AppComponent {
   constructor(private GameService: GamesService){}
 
   ngOnInit(){
-    this.GameService.getGameById(3).subscribe(game => this.firstGame = game);
+    this.GameService.getGameById(5).subscribe(game => this.firstGame = game);
   }
 }

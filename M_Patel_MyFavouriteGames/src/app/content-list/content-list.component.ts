@@ -14,7 +14,7 @@ import { GamesService } from '../services/games.service';
     defaultImage: string = "/assets/default.jpg";
     titleSearch:string = '';
     checkForTitleInList: boolean | null = null;
-    errorMsg: string = '';
+    // errorMsg: string = '';
   
     logIdTitle(card: any){
       console.log(`${card.id}, ${card.title}`);
@@ -30,5 +30,11 @@ import { GamesService } from '../services/games.service';
       ngOnInit(){
         this.GameService.getGame().subscribe(content => this.game = content);
       }
-  
+
+      addGame(newGame: Content){
+        this.GameService.addGame(newGame).subscribe(newGameFromServer => {
+          this.game.push(newGameFromServer);
+          this.game = [...this.game];
+        })
+      }
   }
